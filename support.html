@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>サポート — KIATSU</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #5c5c5c;
+    --line: #e0e0e0;
+    --link: #0a5ec4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181c;
+      --fg: #e8e8e8;
+      --muted: #a0a0a0;
+      --line: #33363c;
+      --link: #6fb2ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 2rem 1.25rem 4rem;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+    line-height: 1.8;
+    font-size: 16px;
+  }
+  main { max-width: 42rem; margin: 0 auto; }
+  h1 { font-size: 1.5rem; line-height: 1.4; margin: 0 0 0.25rem; }
+  h2 { font-size: 1.125rem; margin: 2.25rem 0 0.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  h2:first-of-type { border-top: none; padding-top: 0; }
+  p, li { margin: 0.5rem 0; }
+  ul { padding-left: 1.25rem; }
+  .updated { color: var(--muted); font-size: 0.875rem; margin: 0 0 2rem; }
+  a { color: var(--link); }
+  dt { font-weight: 600; margin-top: 1rem; }
+  dd { margin: 0.25rem 0 0; }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>サポート</h1>
+  <p class="updated">KIATSU 気圧を味方にする ／ 最終更新: 2026年8月10日</p>
+
+  <h2>このアプリでできること</h2>
+  <p>気圧の変化から、体調が崩れやすい時間帯と、調子が戻る時間帯を示します。気圧が下がり始めるタイミングを事前に知らせ、上昇に転じるタイミングも示すので、しんどい時間を避けるだけでなく、調子の良い時間を仕事や作業にあてられます。</p>
+  <ul>
+    <li>今のフェーズと、次の転換点までのカウントダウン</li>
+    <li>先7日の気圧の見通しと、過去7日の記録の重ね合わせ</li>
+    <li>体調の記録</li>
+    <li>移動モード — 移動中の気圧と標高の変化を記録する</li>
+    <li>気圧が下がり始める前の通知</li>
+  </ul>
+
+  <h2>動作環境</h2>
+  <p>iOS および Android。位置情報の許可が必要です。移動モードを使う場合は、バックグラウンドでの位置情報の許可も必要です。</p>
+
+  <h2>いま分かっている制限</h2>
+  <ul>
+    <li>現在はテスト配信の段階です。予告なく仕様が変わることがあります。</li>
+    <li>気圧の値は MET Norway(ノルウェー気象研究所)が公開している数値計算の結果です。気象の予報ではなく、本アプリが独自に予想したものでもありません。値には誤差が含まれ、実際に測られる気圧とずれることがあります。</li>
+    <li>体調が悪くなる・良くなるタイミングの判定は、気圧の変化にもとづく目安です。個人差があり、あらゆる不調の原因を説明するものではありません。</li>
+    <li>移動モード中はバックグラウンドで位置情報を取得するため、通常より電池を使います。</li>
+  </ul>
+
+  <h2>よくある質問</h2>
+  <dl>
+    <dt>アカウント登録は必要ですか。</dt>
+    <dd>不要です。記録は端末の中だけに保存されます。</dd>
+
+    <dt>機種変更するとデータは移りますか。</dt>
+    <dd>移りません。端末内にのみ保存しているため、現在のところ引き継ぎの手段はありません。</dd>
+
+    <dt>位置情報は何に使われますか。</dt>
+    <dd>その地点の気圧データの取得と、移動モード中の気圧・標高の記録に使います。詳しくは<a href="./privacy.html">プライバシーポリシー</a>をご覧ください。</dd>
+
+    <dt>通知が来ません。</dt>
+    <dd>端末の設定でアプリの通知が許可されているかご確認ください。気圧が下がり始める見込みがない期間は通知されません。</dd>
+  </dl>
+
+  <h2>医療についての注意</h2>
+  <p>このアプリは病気の診断・治療・予防を目的としたものではありません。表示される内容は医師の診断に代わるものではありません。体調に不安があるときは医療機関にご相談ください。</p>
+
+  <h2>お問い合わせ</h2>
+  <p>不具合の報告やご意見は <a href="mailto:kurauchimlab@gmail.com">kurauchimlab@gmail.com</a> までお送りください。お使いの機種と OS のバージョン、起きたことを書き添えていただけると助かります。</p>
+
+  <footer>
+    KIATSU — 開発: Tatsuya Kurauchi ／ <a href="./terms.html">利用規約</a> ／ <a href="./privacy.html">プライバシーポリシー</a> ／ <a href="./tokushoho.html">特定商取引法に基づく表示</a>
+  </footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — KIATSU</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #5c5c5c;
+    --line: #e0e0e0;
+    --link: #0a5ec4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181c;
+      --fg: #e8e8e8;
+      --muted: #a0a0a0;
+      --line: #33363c;
+      --link: #6fb2ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 2rem 1.25rem 4rem;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.8;
+    font-size: 16px;
+  }
+  main { max-width: 42rem; margin: 0 auto; }
+  h1 { font-size: 1.5rem; line-height: 1.4; margin: 0 0 0.25rem; }
+  h2 { font-size: 1.125rem; margin: 2.25rem 0 0.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  h2:first-of-type { border-top: none; padding-top: 0; }
+  p, li { margin: 0.5rem 0; }
+  ul { padding-left: 1.25rem; }
+  .updated { color: var(--muted); font-size: 0.875rem; margin: 0 0 2rem; }
+  a { color: var(--link); }
+  code { font-size: 0.9em; word-break: break-all; }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="updated">KIATSU 気圧を味方にする (KIATSU) / Last updated: October 16, 2026 (English translation of the <a href="./privacy.html" hreflang="ja" lang="ja">Japanese original</a>, last updated October 16, 2026)</p>
+
+  <h2>About this app</h2>
+  <p>KIATSU is an app for reading the swings in how you feel from changes in barometric pressure. It tells you in advance when pressure is about to start falling, and also shows when you can expect to feel better. There is no user registration, and all records are stored only on your device.</p>
+
+  <h2>Information the app collects</h2>
+  <p><strong>Location (while using the app)</strong> — Used to fetch the pressure data for your location. The app reads your latitude and longitude.</p>
+  <p><strong>Location (in the background)</strong> — Used only while "Travel mode" is running, to record changes in pressure and altitude while you move. The app does not collect location in the background when Travel mode is not running. While it records with the screen off, iOS shows a blue indicator in the status bar.</p>
+  <p><strong>Records created on your device</strong> — Your condition logs, pressure readings and temporarily stored pressure data, and the app settings. All of these are entered or obtained by you.</p>
+  <p>The app does not collect your name, email address, phone number, contacts, photos, or advertising identifier.</p>
+
+  <h2>How the information is used</h2>
+  <ul>
+    <li>To fetch the pressure data for your location and find the turning points of pressure (the start of a fall and the turn back up)</li>
+    <li>To record changes in pressure and altitude while you travel, so you can look back on them later</li>
+    <li>To schedule notifications on your device that follow changes in pressure</li>
+  </ul>
+
+  <h2>What is sent outside the app</h2>
+  <p>The app communicates with only the two services below, and sends only what is listed for each.</p>
+  <ul>
+    <li><strong>MET Norway (Norwegian Meteorological Institute, <code>api.met.no</code>)</strong> — When fetching pressure values. The app sends your latitude and longitude <strong>rounded to about 1 km</strong> (two decimal places), plus the app's name, version, and a contact address. It does not send your exact location. The app identifies itself because the provider's terms require it.</li>
+    <li><strong>Open-Meteo (<code>geocoding-api.open-meteo.com</code>)</strong> — Only when you search for a city name in Settings. The app sends the text you typed and the display language. <strong>It does not send your location.</strong></li>
+  </ul>
+  <p>The app sends no information that identifies you. Device identifiers, account information, and your condition logs are never sent to any outside party. <strong>The developer runs no server.</strong> The app connects directly to the providers, and no equipment of the developer sits in between.</p>
+
+  <h2>Where data is stored and for how long</h2>
+  <p>All data is stored in a database on your device (SQLite) and in the app's settings area on your device. Nothing is stored on a server or cloud of the developer. Your condition logs stay on your device until you delete them. Only pressure values are discarded from the oldest first once they are older than about a month and a half (to keep the range used for the graph).</p>
+
+  <h2>Accounts</h2>
+  <p>You do not need to create an account or sign in. Because the app creates no per-user identifier, the developer cannot know who is using the app.</p>
+
+  <h2>Sharing with third parties, advertising, and analytics</h2>
+  <p>The app does not share the information it collects with third parties. It shows no advertising. It includes no analytics tools or behavior-tracking mechanisms.</p>
+
+  <h2>How to delete your data</h2>
+  <p>When you delete the app from your device, the data the app created is deleted with it. You can delete individual records from the History screen in the app.</p>
+
+  <h2>Children</h2>
+  <p>The app is not designed for children. It does not knowingly collect information from children.</p>
+
+  <h2>Medical notice</h2>
+  <p>This app handles condition logs and the course of barometric pressure. It is not intended to diagnose, treat, or prevent any disease, and what it shows does not replace a doctor's diagnosis. If you are worried about your health, please consult a medical institution.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If the content changes, this page will be updated and the last-updated date rewritten.</p>
+
+  <h2>Contact</h2>
+  <p>For questions about this policy or the app, please write to <a href="mailto:kurauchimlab@gmail.com">kurauchimlab@gmail.com</a>.</p>
+
+  <footer>
+    KIATSU — Developer: Tatsuya Kurauchi / <a href="./terms-en.html">Terms of Use</a> / <a href="./tokushoho-en.html">Specified Commercial Transactions Act notice</a> / <a href="./support.html">Support</a> / <a href="./privacy.html" hreflang="ja" lang="ja">日本語</a>
+  </footer>
+</main>
+</body>
+</html>
