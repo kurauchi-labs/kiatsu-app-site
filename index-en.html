@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KIATSU: Pressure on Your Side</title>
+<meta name="description" content="Line up air pressure swings with your symptom log to learn which phase affects you. Values come straight from MET Norway's model. No account; records stay on your device.">
+<meta name="apple-itunes-app" content="app-id=6799972657">
+<link rel="canonical" href="https://kurauchi-labs.github.io/kiatsu-app-site/index-en.html">
+<link rel="alternate" hreflang="ja" href="https://kurauchi-labs.github.io/kiatsu-app-site/">
+<link rel="alternate" hreflang="en" href="https://kurauchi-labs.github.io/kiatsu-app-site/index-en.html">
+<link rel="icon" href="./assets/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KIATSU">
+<meta property="og:title" content="KIATSU: Pressure on Your Side">
+<meta property="og:description" content="Air pressure &amp; symptom diary">
+<meta property="og:url" content="https://kurauchi-labs.github.io/kiatsu-app-site/index-en.html">
+<meta property="og:image" content="https://kurauchi-labs.github.io/kiatsu-app-site/assets/icon-512.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #5c5c5c;
+    --line: #e0e0e0;
+    --link: #0a5ec4;
+    --band: #fff6ec;
+    --accent: #a8346a;
+    --card: #ffffff;
+    --shadow: 0 1px 2px rgba(59, 42, 63, 0.08), 0 10px 28px rgba(59, 42, 63, 0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181c;
+      --fg: #e8e8e8;
+      --muted: #a0a0a0;
+      --line: #33363c;
+      --link: #6fb2ff;
+      --band: #1d2027;
+      --accent: #ff8fc0;
+      --card: #1f2229;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 28px rgba(0, 0, 0, 0.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  a { color: var(--link); }
+  img { max-width: 100%; height: auto; display: block; }
+  .wrap { max-width: 60rem; margin: 0 auto; padding: 0 1.25rem; }
+  .site-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1rem; padding-bottom: 1rem; }
+  .brand { display: flex; align-items: center; gap: 0.5rem; color: var(--fg); text-decoration: none; font-weight: 700; letter-spacing: 0.04em; }
+  .brand img { width: 32px; height: 32px; border-radius: 8px; }
+  .lang { font-size: 0.9375rem; }
+  .hero { background: var(--band); padding: 2.5rem 0 3rem; }
+  .hero-grid { display: grid; gap: 2rem; align-items: center; }
+  .app-icon { width: 88px; height: 88px; border-radius: 20px; box-shadow: var(--shadow); }
+  h1 { font-size: clamp(1.625rem, 5vw, 2.375rem); line-height: 1.3; margin: 1.25rem 0 0.25rem; }
+  .subtitle { color: var(--accent); font-weight: 700; font-size: 1.125rem; margin: 0 0 1rem; }
+  .lead { margin: 0 0 1.5rem; }
+  .nowrap { white-space: nowrap; }
+  .badge { display: inline-block; }
+  .badge img { height: 48px; width: auto; }
+  .shot { margin: 0; }
+  .shot img { width: 100%; border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+  .intro { padding: 2.5rem 0 0.5rem; }
+  .intro p { margin: 0; font-size: 1.0625rem; }
+  h2 { font-size: 1.375rem; line-height: 1.4; margin: 3rem 0 1.25rem; }
+  h3 { font-size: 1.125rem; line-height: 1.5; margin: 0 0 0.5rem; }
+  ul { padding-left: 1.25rem; margin: 0.5rem 0; }
+  li { margin: 0.375rem 0; }
+  .feature { display: grid; gap: 1.25rem 2.5rem; align-items: center; margin: 0 0 3rem; }
+  .more { border-top: 1px solid var(--line); padding-top: 1.5rem; }
+  .plan { margin-top: 3rem; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.25rem 1.5rem; box-shadow: var(--shadow); }
+  .plan h2 { margin-top: 0; }
+  .plan .terms { color: var(--muted); font-size: 0.9375rem; margin: 1rem 0 0; }
+  .notes p { color: var(--muted); font-size: 0.9375rem; }
+  .cta { text-align: center; padding: 2.5rem 0 1rem; }
+  .cta .badge img { margin: 0 auto; }
+  footer { margin-top: 3rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; padding-top: 1.25rem; padding-bottom: 3rem; }
+  footer ul { list-style: none; padding: 0; margin: 0 0 1rem; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+  footer p { margin: 0.25rem 0; }
+  @media (min-width: 50rem) {
+    .hero-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .feature { grid-template-columns: 1fr 1fr; }
+    .feature:nth-of-type(even) .shot { order: 2; }
+  }
+</style>
+</head>
+<body>
+<header class="wrap site-head">
+  <a class="brand" href="./index-en.html"><img src="./assets/icon-192.png" alt="" width="32" height="32">KIATSU</a>
+  <a class="lang" href="./" hreflang="ja" lang="ja">日本語</a>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <img class="app-icon" src="./assets/icon-192.png" alt="KIATSU app icon" width="88" height="88">
+      <h1>KIATSU: <span class="nowrap">Pressure on Your Side</span></h1>
+      <p class="subtitle">Air pressure &amp; symptom diary</p>
+      <p class="lead">Air pressure changes can affect how you feel, but the phase that hits you differs from person to person. Some people feel it when pressure starts to fall, others at the lowest point, and others as it starts to rise again. KIATSU lines up the rise and fall of air pressure with your own symptom log, so you can find your own pattern.</p>
+      <a class="badge" href="https://apps.apple.com/us/app/id6799972657">
+        <picture>
+          <source srcset="./assets/app-store-badge-en-white.svg" media="(prefers-color-scheme: dark)">
+          <img src="./assets/app-store-badge-en-black.svg" alt="Download on the App Store" width="144" height="48">
+        </picture>
+      </a>
+    </div>
+    <figure class="shot">
+      <img src="./assets/en/home.webp" alt="Home screen with the pressure graph, the current pressure, the 3-hour change and the button to start travel mode" width="720" height="584">
+    </figure>
+  </div>
+</section>
+
+<main class="wrap">
+  <section class="intro">
+    <p>Once you know your pattern, you can move plans away from the phases that tend to affect you, and put focused work into the hours that suit you. KIATSU helps you work with the pressure instead of being pushed around by it.</p>
+  </section>
+
+  <section>
+    <h2>What you can do</h2>
+
+    <article class="feature">
+      <figure class="shot">
+        <img src="./assets/en/turn.webp" alt="Part of the home screen showing when the next turn is calculated to come, and that a phase where you tend to feel worse begins" width="720" height="281" loading="lazy">
+      </figure>
+      <div>
+        <h3>The current phase and the next turn</h3>
+        <ul>
+          <li>See the current pressure phase (falling, rising, turning, stable) and the time until the next turn</li>
+          <li>Pressure graph for the next 48 hours, overlaid with your past records</li>
+          <li>Choose the phases that tend to affect you and get a notice 1, 3 or 6 hours before they start</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="feature">
+      <figure class="shot">
+        <img src="./assets/en/record.webp" alt="Record screen where you pick one of five faces for how you feel now" width="720" height="655" loading="lazy">
+      </figure>
+      <div>
+        <h3>Your log</h3>
+        <ul>
+          <li>Log how you feel and look back on your history</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="feature">
+      <figure class="shot">
+        <img src="./assets/en/synthwave.webp" alt="Home screen with the synthwave skin" width="720" height="592" loading="lazy">
+      </figure>
+      <div>
+        <h3>Skins</h3>
+        <ul>
+          <li>Choose a look, including pixel-art skins</li>
+        </ul>
+      </div>
+    </article>
+
+    <div class="more">
+      <h3>Travel mode and placebo-free mode</h3>
+      <ul>
+        <li>Travel mode: record pressure changes while you travel, and separate changes caused by weather from changes caused by moving</li>
+        <li>Placebo-free mode: for 10 days, log how you feel without seeing any pressure data, then compare your log with the phases afterwards</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="plan">
+    <h2>Annual plan (7-day free trial)</h2>
+    <ul>
+      <li>Pressure graph and week strip up to 7 days ahead</li>
+      <li>A suggested window this week when you are likely to feel best, based on the pattern you chose</li>
+      <li>Export your records to share with your doctor</li>
+    </ul>
+    <p class="terms">Records, notices and the 48-hour view stay free without a subscription. If you cancel during the trial, you will not be charged. The subscription renews automatically every year unless you cancel at least 24 hours before the renewal date.</p>
+  </section>
+
+  <section>
+    <h2>No account needed</h2>
+    <p>There is no sign-up and no login. Your records are stored only on your device. The developer runs no server, and your symptom records never leave your device. To fetch pressure values, the app sends the data provider a location rounded to about 1 km, plus the app name, version and a contact address (the provider's terms require apps to identify themselves). When you search for a city, the search text is sent too. No ads and no usage analytics.</p>
+  </section>
+
+  <section class="notes">
+    <h2>Please note</h2>
+    <p>This app is not intended to diagnose, treat or prevent any disease, and it does not replace advice from a doctor. If you are worried about your health, please consult a medical professional.</p>
+    <p>Pressure values are numerical model output published by MET Norway (the Norwegian Meteorological Institute). They are not a weather forecast, and this app does not make its own predictions. Values contain errors and may differ from measured pressure.</p>
+  </section>
+
+  <section class="cta">
+    <a class="badge" href="https://apps.apple.com/us/app/id6799972657">
+      <picture>
+        <source srcset="./assets/app-store-badge-en-white.svg" media="(prefers-color-scheme: dark)">
+        <img src="./assets/app-store-badge-en-black.svg" alt="Download on the App Store" width="144" height="48">
+      </picture>
+    </a>
+  </section>
+</main>
+
+<footer class="wrap">
+  <ul>
+    <li><a href="./terms-en.html">Terms of Use</a></li>
+    <li><a href="./privacy-en.html">Privacy Policy</a></li>
+    <li><a href="./tokushoho-en.html">Notice under the Act on Specified Commercial Transactions</a></li>
+    <li><a href="./support.html" hreflang="ja">Support (in Japanese)</a></li>
+  </ul>
+  <p>Developer: Tatsuya Kurauchi</p>
+  <p>Apple, the Apple logo and App Store are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
+</footer>
+</body>
+</html>
