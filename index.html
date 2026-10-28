@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KIATSU 気圧を味方にする</title>
-<meta name="description" content="気圧の上がり下がりと体調の記録を重ねて、自分がどんなタイミングで揺れやすいかを確かめられるアプリです。気圧の値は、MET Norway の数値計算の結果をそのまま表示しています。アカウント登録はいらず、記録は端末の中だけに保存されます。">
+<meta name="description" content="気圧の上がり下がりと体調の記録を重ねて、自分の傾向を確かめ、気圧を味方にするためのアプリです。調子のいい時間を見つけやすくなります。気圧の値は MET Norway の数値計算の結果です。アカウントは不要で、記録は端末の中だけに保存されます。">
 <meta name="apple-itunes-app" content="app-id=6799972657">
 <link rel="canonical" href="https://kurauchi-labs.github.io/kiatsu-app-site/">
 <link rel="alternate" hreflang="ja" href="https://kurauchi-labs.github.io/kiatsu-app-site/">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="KIATSU">
 <meta property="og:title" content="KIATSU 気圧を味方にする">
-<meta property="og:description" content="気圧と体調の記録を重ねて、自分の傾向を確かめられます">
+<meta property="og:description" content="気圧を味方にして、調子のいい時間を見つけられます">
 <meta property="og:url" content="https://kurauchi-labs.github.io/kiatsu-app-site/">
 <meta property="og:image" content="https://kurauchi-labs.github.io/kiatsu-app-site/assets/icon-512.png">
 <meta property="og:locale" content="ja_JP">
@@ -79,10 +79,20 @@
   ul { padding-left: 1.25rem; margin: 0.5rem 0; }
   li { margin: 0.375rem 0; }
   .feature { display: grid; gap: 1.25rem 2.5rem; align-items: center; margin: 0 0 3rem; }
-  .more { border-top: 1px solid var(--line); padding-top: 1.5rem; }
   .plan { margin-top: 3rem; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.25rem 1.5rem; box-shadow: var(--shadow); }
   .plan h2 { margin-top: 0; }
   .plan .terms { color: var(--muted); font-size: 0.9375rem; margin: 1rem 0 0; }
+  .flow { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+  .flow li { position: relative; padding: 0.75rem 0 0.75rem 2.75rem; border-top: 1px solid var(--line); }
+  .flow li:first-child { border-top: none; }
+  .flow li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0.85rem; width: 1.75rem; height: 1.75rem; border-radius: 999px; background: var(--band); color: var(--accent); font-weight: 700; font-size: 0.875rem; display: grid; place-items: center; }
+  .compare { display: grid; gap: 1rem; margin: 1rem 0 0; }
+  .compare article { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.1rem 1.25rem; box-shadow: var(--shadow); }
+  .compare h3 { margin-top: 0; }
+  .faq { margin: 0; }
+  .faq dt { font-weight: 700; margin-top: 1.25rem; }
+  .faq dd { margin: 0.35rem 0 0; color: var(--muted); }
+  .shot-pending { min-height: 12rem; display: grid; place-items: center; padding: 1.5rem; border-radius: 16px; border: 1px dashed var(--line); background: var(--band); color: var(--muted); text-align: center; font-size: 0.9375rem; }
   .notes p { color: var(--muted); font-size: 0.9375rem; }
   .cta { text-align: center; padding: 2.5rem 0 1rem; }
   .cta .badge img { margin: 0 auto; }
@@ -93,6 +103,7 @@
     .hero-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
     .feature { grid-template-columns: 1fr 1fr; }
     .feature:nth-of-type(even) .shot { order: 2; }
+    .compare { grid-template-columns: 1fr 1fr; }
   }
 </style>
 </head>
@@ -107,8 +118,8 @@
     <div>
       <img class="app-icon" src="./assets/icon-192.png" alt="KIATSU のアイコン" width="88" height="88">
       <h1>KIATSU <span class="nowrap">気圧を味方にする</span></h1>
-      <p class="subtitle">気圧と体調の記録を重ねて、自分の傾向を確かめられます</p>
-      <p class="lead">気圧が変わると、体調が揺れることがあります。でも、いつしんどくなるかは人それぞれです。下がり始めがつらい人もいれば、下がりきったところや、上がり始めで調子を崩す人もいます。KIATSU は、気圧の上がり下がりと体調の記録を重ねて、自分の傾向を確かめられるアプリです。</p>
+      <p class="subtitle">気圧を味方にして、調子のいい時間を見つけられます</p>
+      <p class="lead">気圧の上がり下がりは、人によって違うタイミングで体調に関わります。KIATSU は、その動きと体調の記録を重ねて自分の傾向を確かめ、気圧を味方にするためのアプリです。調子のいい時間を見つけたり、予定の置き方を自分で選びやすくしたりできます。</p>
       <a class="badge" href="https://apps.apple.com/jp/app/id6799972657">
         <picture>
           <source srcset="./assets/app-store-badge-ja-white.svg" media="(prefers-color-scheme: dark)">
@@ -117,14 +128,16 @@
       </a>
     </div>
     <figure class="shot">
-      <img src="./assets/ja/home.webp" alt="ホーム画面。気圧のグラフと、現在の気圧・3時間の変化・移動モードの開始ボタン" width="720" height="597">
+      <img src="./assets/ja/home.webp" alt="年額プラン加入中のホーム。7日先までの気圧グラフ、週の帯、今週いちばん調子が良い窓、移動モードの開始" width="390" height="844">
     </figure>
   </div>
 </section>
 
 <main class="wrap">
   <section class="intro">
-    <p>自分の傾向がわかってくると、揺れやすいタイミングの前に予定をずらしたり、調子のいい時間に作業を入れたりしやすくなります。</p>
+    <p>自分の傾向がわかってくると、調子のいい時間に作業を入れたり、苦手な局面の前に予定を調整したりしやすくなります。</p>
+    <p>じっとしているときの気圧を見るだけでは、わからないこともあります。坂道や山、エレベーターなどで感じる気圧の変化は、天気ではなく高さが変わったせいで起きていることがあるからです。KIATSU の<strong>移動モード</strong>は、そうした変化を記録し、「変化の内訳」で天気の分と高さの分に分けて見せます。</p>
+    <p>記録が増えてきたら、見えてきた傾向を「気圧と体調の関係」に反映できます。反映すると、<strong>通知のタイミング</strong>と<strong>週の帯の印</strong>が自分の記録に合わせて変わります。</p>
   </section>
 
   <section>
@@ -132,21 +145,35 @@
 
     <article class="feature">
       <figure class="shot">
-        <img src="./assets/ja/turn.webp" alt="ホーム画面の一部。計算上の次の折り返しの時刻と、不調になりやすい局面に入るという知らせ" width="720" height="251" loading="lazy">
+        <div class="shot-pending" role="img" aria-label="移動モードの詳細画面の写真は準備中">移動モードの写真は準備中<br><span lang="en">Travel mode photo coming soon</span></div>
       </figure>
       <div>
-        <h3>いまの気圧の動きと、次の変わり目</h3>
+        <h3>移動モード: 高さが変わったときの気圧の変化を記録</h3>
         <ul>
-          <li>いまの気圧の動き (下降・上昇・その変わり目・安定) と、次の変わり目までの時間がわかります</li>
-          <li>48時間先までの気圧のグラフと、これまでの記録を重ねて見られます</li>
-          <li>自分が揺れやすいタイミングを選んでおくと、その前 (1・3・6時間前) に通知します</li>
+          <li>坂道や山、エレベーターなどで高さが変わったときの気圧の変化を、ふだんのグラフとは別に記録します</li>
+          <li>「変化の内訳」で、天気による分と高さによる分を分けて見られます</li>
+          <li>ほかのアプリを使っていても、画面を消していても記録は続きます。気圧が急に変わったときは、何による変化かの目安を添えて通知します</li>
         </ul>
       </div>
     </article>
 
     <article class="feature">
       <figure class="shot">
-        <img src="./assets/ja/record.webp" alt="記録画面。いまの体調を5つの顔から選んで記録する" width="720" height="605" loading="lazy">
+        <img src="./assets/ja/turn.webp" alt="加入中のホームの一部。今週いちばん調子が良い窓と、次の折り返しの知らせ" width="720" height="313" loading="lazy">
+      </figure>
+      <div>
+        <h3>いまの気圧の動きと、次の変わり目</h3>
+        <ul>
+          <li>いま気圧がどう動いているか (下降・上昇・変わり目・安定) と、次に動きが変わるまでの時間がわかります</li>
+          <li>48時間先までの気圧のグラフと、これまでの記録を重ねて見られます</li>
+          <li>自分が不調になりやすいタイミングを選んでおくと、その前に通知します (1時間前・3時間前・6時間前から選べます)</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="feature">
+      <figure class="shot">
+        <img src="./assets/ja/record.webp" alt="記録画面。いまの体調を5つの顔から選んで記録する" width="390" height="844" loading="lazy">
       </figure>
       <div>
         <h3>体調の記録</h3>
@@ -158,7 +185,101 @@
 
     <article class="feature">
       <figure class="shot">
-        <img src="./assets/ja/synthwave.webp" alt="シンセウェーブのスキンを選んだホーム画面" width="720" height="600" loading="lazy">
+        <div class="shot-pending" role="img" aria-label="プラシーボ排除モードの答え合わせ画面の写真は準備中">プラシーボ排除モードの写真は準備中<br><span lang="en">Placebo-free mode photo coming soon</span></div>
+      </figure>
+      <div>
+        <h3>プラシーボ排除モード: 気圧を見ずに記録し、あとで答え合わせ</h3>
+        <ul>
+          <li>10日間、ホームや履歴から気圧を隠し、体調だけを記録します</li>
+          <li>そのあいだは気圧の知らせが止まり、記録を促す知らせ (朝と夜) だけが届きます</li>
+          <li>終わったら、気圧の動きと自分の記録を見比べて答え合わせできます</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="feature">
+      <figure class="shot">
+        <img src="./assets/ja/turn.webp" alt="加入中のホーム。週の帯の印と、調子が良い窓・次の折り返しの知らせ" width="720" height="313" loading="lazy">
+      </figure>
+      <div>
+        <h3>記録に合わせて、通知と表示が変わる</h3>
+        <ul>
+          <li>答え合わせで見えてきた傾向を、「気圧と体調の関係」に反映できます</li>
+          <li>反映すると、不調になりやすい局面の前に届く通知のタイミングが、その傾向に合わせて変わります</li>
+          <li>ホームの週の帯の印も、同じ傾向に合わせて変わります（年額プランでは、調子が良さそうな時間帯の目安を出すのにも使います）</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <h2>使い方の流れ</h2>
+    <ol class="flow">
+      <li>自分が不調になりやすい局面を選ぶ (下降・上昇・変わり目など)</li>
+      <li>その局面の前に届く通知を見て、予定を立てる参考にする</li>
+      <li>体調を記録し、気圧の動きと見比べて自分の傾向を確かめる</li>
+      <li>坂道やエレベーターなどで高さが変わるときは、移動モードで気圧の変化を記録し、天気の分と高さの分に分ける</li>
+      <li>思い込みを避けたいときは、プラシーボ排除モードで答え合わせする</li>
+      <li>見えてきた傾向を反映して、通知のタイミングと週の帯の表示を自分に合わせる</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>無料と年額プランの違い</h2>
+    <div class="compare">
+      <article>
+        <h3>無料で使えること</h3>
+        <ul>
+          <li>記録、通知、48時間先までの気圧の表示</li>
+          <li>移動モード（高さが変わったときの気圧の変化の記録と、その内訳）</li>
+          <li>プラシーボ排除モード</li>
+          <li>記録から見えた傾向の反映（通知と週の帯が自分に合わせて変わる）</li>
+        </ul>
+      </article>
+      <article>
+        <h3>年額プラン (7日間無料)</h3>
+        <ul>
+          <li>7日先までの気圧のグラフと週の帯</li>
+          <li>自分で選んだ傾向をもとにした、今週いちばん調子が良さそうな時間帯の目安</li>
+          <li>医師に見せやすい形での記録の書き出し</li>
+        </ul>
+      </article>
+    </div>
+    <p class="terms" style="color:var(--muted);font-size:0.9375rem;margin:1rem 0 0">お試し期間中に解約すれば、料金はかかりません。プランは1年ごとに自動で更新され、更新日の24時間前までに解約しない限り続きます。</p>
+  </section>
+
+  <section>
+    <h2>よくある質問</h2>
+    <dl class="faq">
+      <dt>これは気象の予報アプリですか。</dt>
+      <dd>いいえ。気圧の値は MET Norway の数値計算の結果を表示しています。予報や独自の予想ではありません。</dd>
+      <dt>いつ不調になるか、アプリが決めてくれますか。</dt>
+      <dd>いいえ。不調になりやすい局面は自分で選びます。KIATSU は、記録を重ねてその傾向を確かめるための道具です。診断や治療を目的としたものではありません。</dd>
+      <dt>無料の範囲はどこまでですか。</dt>
+      <dd>記録、通知、48時間先までの表示、移動モード、プラシーボ排除モードは無料です。7日先までのグラフと週の帯、記録の書き出しなどは年額プランで使えます。</dd>
+      <dt>年額プランはどうやって解約しますか。</dt>
+      <dd>iPhone の「設定 › 自分の名前 › サブスクリプション」から解約できます。アプリの設定画面からも解約の画面を開けます。お試し中に解約すれば、料金はかかりません。</dd>
+      <dt>機種変更でデータは移りますか。</dt>
+      <dd>移りません。記録は端末の中にだけ保存しているためです。年額プランは、新しい端末で「購入を復元」を押せば使えるようになります。</dd>
+      <dt>通知が来ません。</dt>
+      <dd>端末の通知の許可と、アプリの「気圧と体調の関係」「通知」の設定を確かめてください。選んだ局面がしばらく来ないときは、通知は届きません。プラシーボ排除モードのあいだは、気圧の知らせが止まります。</dd>
+      <dt>なぜ移動モードがあるのですか。</dt>
+      <dd>坂道やエレベーターなどで気圧の変化を感じても、それが天気のせいなのか高さのせいなのかは、ふつうの気圧の表示ではわかりません。移動モードは、そのときの変化を記録し、「変化の内訳」で天気の分と高さの分に分けて見せます。</dd>
+      <dt>通知や表示は、記録に合わせて変わりますか。</dt>
+      <dd>はい。答え合わせなどで見えてきた傾向を「気圧と体調の関係」に反映すると、その局面の前に届く通知のタイミングと、週の帯の印が自分に合わせて変わります。設定画面で自分で選ぶこともできます。</dd>
+      <dt>位置情報は何に使いますか。</dt>
+      <dd>いまいる場所の気圧を取得するときと、移動モードで気圧と高さの変化を記録するときに使います。移動モードを使っていないときに、裏で位置を取ることはありません。</dd>
+      <dt>病院で見せられる記録は作れますか。</dt>
+      <dd>年額プランの書き出しを使うと、医師に見せやすい形にまとめられます。ただし、診断や治療の代わりにはなりません。</dd>
+    </dl>
+    <p style="margin-top:1.5rem"><a href="./manual.html">操作マニュアル</a> ／ <a href="./press.html">紹介素材</a></p>
+  </section>
+
+  <section>
+    <h2>見た目</h2>
+    <article class="feature">
+      <figure class="shot">
+        <img src="./assets/ja/synthwave.webp" alt="シンセウェーブのスキンを選んだ、加入中のホーム画面" width="390" height="844" loading="lazy">
       </figure>
       <div>
         <h3>見た目を選べるスキン</h3>
@@ -167,24 +288,6 @@
         </ul>
       </div>
     </article>
-
-    <div class="more">
-      <h3>移動モードとプラシーボ排除モード</h3>
-      <ul>
-        <li>移動モード: 移動中の気圧の変化を記録して、天気による変化と移動による変化を分けて表示します</li>
-        <li>プラシーボ排除モード: 10日間、気圧を表示せずに体調だけを記録して、終わったあとで気圧の動きと答え合わせができます</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="plan">
-    <h2>年額プラン (7日間無料)</h2>
-    <ul>
-      <li>7日先までの気圧のグラフと週の帯が見られます</li>
-      <li>自分で選んだ傾向をもとに、今週いちばん調子が良さそうな時間帯の目安がわかります</li>
-      <li>医師に渡せる形で記録を書き出せます</li>
-    </ul>
-    <p class="terms">記録・通知・48時間先までの表示は、プランに入らなくても無料で使えます。お試しの期間中に解約すれば料金はかかりません。プランは1年ごとに自動更新され、更新日の24時間前までに解約しない限り継続します。</p>
   </section>
 
   <section>
@@ -210,6 +313,8 @@
 
 <footer class="wrap">
   <ul>
+    <li><a href="./manual.html">操作マニュアル</a></li>
+    <li><a href="./press.html">紹介素材</a></li>
     <li><a href="./terms.html">利用規約</a></li>
     <li><a href="./privacy.html">プライバシーポリシー</a></li>
     <li><a href="./tokushoho.html">特定商取引法に基づく表示</a></li>

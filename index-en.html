@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KIATSU: Pressure on Your Side</title>
-<meta name="description" content="Line up air pressure swings with your symptom log to learn which phase affects you. Values come straight from MET Norway's model. No account; records stay on your device.">
+<meta name="description" content="Line up air pressure with your symptom log, learn your pattern, and put pressure on your side. Find hours that suit you. Values from MET Norway's model. No account; records stay on your device.">
 <meta name="apple-itunes-app" content="app-id=6799972657">
 <link rel="canonical" href="https://kurauchi-labs.github.io/kiatsu-app-site/index-en.html">
 <link rel="alternate" hreflang="ja" href="https://kurauchi-labs.github.io/kiatsu-app-site/">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="KIATSU">
 <meta property="og:title" content="KIATSU: Pressure on Your Side">
-<meta property="og:description" content="Air pressure &amp; symptom diary">
+<meta property="og:description" content="Work with pressure. Find your better hours.">
 <meta property="og:url" content="https://kurauchi-labs.github.io/kiatsu-app-site/index-en.html">
 <meta property="og:image" content="https://kurauchi-labs.github.io/kiatsu-app-site/assets/icon-512.png">
 <meta property="og:locale" content="en_US">
@@ -79,10 +79,20 @@
   ul { padding-left: 1.25rem; margin: 0.5rem 0; }
   li { margin: 0.375rem 0; }
   .feature { display: grid; gap: 1.25rem 2.5rem; align-items: center; margin: 0 0 3rem; }
-  .more { border-top: 1px solid var(--line); padding-top: 1.5rem; }
   .plan { margin-top: 3rem; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.25rem 1.5rem; box-shadow: var(--shadow); }
   .plan h2 { margin-top: 0; }
   .plan .terms { color: var(--muted); font-size: 0.9375rem; margin: 1rem 0 0; }
+  .flow { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+  .flow li { position: relative; padding: 0.75rem 0 0.75rem 2.75rem; border-top: 1px solid var(--line); }
+  .flow li:first-child { border-top: none; }
+  .flow li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0.85rem; width: 1.75rem; height: 1.75rem; border-radius: 999px; background: var(--band); color: var(--accent); font-weight: 700; font-size: 0.875rem; display: grid; place-items: center; }
+  .compare { display: grid; gap: 1rem; margin: 1rem 0 0; }
+  .compare article { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.1rem 1.25rem; box-shadow: var(--shadow); }
+  .compare h3 { margin-top: 0; }
+  .faq { margin: 0; }
+  .faq dt { font-weight: 700; margin-top: 1.25rem; }
+  .faq dd { margin: 0.35rem 0 0; color: var(--muted); }
+  .shot-pending { min-height: 12rem; display: grid; place-items: center; padding: 1.5rem; border-radius: 16px; border: 1px dashed var(--line); background: var(--band); color: var(--muted); text-align: center; font-size: 0.9375rem; }
   .notes p { color: var(--muted); font-size: 0.9375rem; }
   .cta { text-align: center; padding: 2.5rem 0 1rem; }
   .cta .badge img { margin: 0 auto; }
@@ -93,6 +103,7 @@
     .hero-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
     .feature { grid-template-columns: 1fr 1fr; }
     .feature:nth-of-type(even) .shot { order: 2; }
+    .compare { grid-template-columns: 1fr 1fr; }
   }
 </style>
 </head>
@@ -107,8 +118,8 @@
     <div>
       <img class="app-icon" src="./assets/icon-192.png" alt="KIATSU app icon" width="88" height="88">
       <h1>KIATSU: <span class="nowrap">Pressure on Your Side</span></h1>
-      <p class="subtitle">Air pressure &amp; symptom diary</p>
-      <p class="lead">Air pressure changes can affect how you feel, but the phase that hits you differs from person to person. Some people feel it when pressure starts to fall, others at the lowest point, and others as it starts to rise again. KIATSU lines up the rise and fall of air pressure with your own symptom log, so you can find your own pattern.</p>
+      <p class="subtitle">Work with pressure. Find your better hours.</p>
+      <p class="lead">How air pressure ties into how you feel differs from person to person. KIATSU lines up those changes with your own log so you can learn your pattern and put pressure on your side — find hours that suit you, and place your plans on your own terms.</p>
       <a class="badge" href="https://apps.apple.com/us/app/id6799972657">
         <picture>
           <source srcset="./assets/app-store-badge-en-white.svg" media="(prefers-color-scheme: dark)">
@@ -117,14 +128,16 @@
       </a>
     </div>
     <figure class="shot">
-      <img src="./assets/en/home.webp" alt="Home screen with the pressure graph, the current pressure, the 3-hour change and the button to start travel mode" width="720" height="584">
+      <img src="./assets/en/home.webp" alt="Subscribed home: 7-day pressure graph, week strip, best window this week, and Start travel mode" width="390" height="844">
     </figure>
   </div>
 </section>
 
 <main class="wrap">
   <section class="intro">
-    <p>Once you know your pattern, you can move plans away from the phases that tend to affect you, and put focused work into the hours that suit you. KIATSU helps you work with the pressure instead of being pushed around by it.</p>
+    <p>Once you know your pattern, you can put focused work into the hours that suit you, and shape plans around the phases you care about. KIATSU helps you work with the pressure instead of being pushed around by it.</p>
+    <p>Pressure while you sit still is not the whole story. What you feel from the lay of the land, or going up and down in an elevator, can come from height — not from the weather. <strong>Travel mode</strong> captures those pressure changes and splits the weather share from the height share on the breakdown card.</p>
+    <p>As your log grows, you can apply what you see to “Pressure and how you feel”. Then <strong>notice timing</strong> and the <strong>marks on the week strip</strong> line up with your own records.</p>
   </section>
 
   <section>
@@ -132,7 +145,21 @@
 
     <article class="feature">
       <figure class="shot">
-        <img src="./assets/en/turn.webp" alt="Part of the home screen showing when the next turn is calculated to come, and that a phase where you tend to feel worse begins" width="720" height="281" loading="lazy">
+        <div class="shot-pending" role="img" aria-label="Travel mode detail photo coming soon">Travel mode photo coming soon</div>
+      </figure>
+      <div>
+        <h3>Travel mode: capture pressure changes from the land and from going up or down</h3>
+        <ul>
+          <li>Record pressure changes from the lay of the land, or elevators and other up-and-down moves — separately from the graph you see when still</li>
+          <li>The breakdown card shows the weather share and the height share side by side</li>
+          <li>Recording continues in another app or with the screen off, and sudden shifts can notify you with a cause hint</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="feature">
+      <figure class="shot">
+        <img src="./assets/en/turn.webp" alt="Part of the subscribed home: best window this week and the next-turn notice" width="720" height="313" loading="lazy">
       </figure>
       <div>
         <h3>The current phase and the next turn</h3>
@@ -146,7 +173,7 @@
 
     <article class="feature">
       <figure class="shot">
-        <img src="./assets/en/record.webp" alt="Record screen where you pick one of five faces for how you feel now" width="720" height="655" loading="lazy">
+        <img src="./assets/en/record.webp" alt="Record screen where you pick one of five faces for how you feel now" width="390" height="844" loading="lazy">
       </figure>
       <div>
         <h3>Your log</h3>
@@ -158,7 +185,101 @@
 
     <article class="feature">
       <figure class="shot">
-        <img src="./assets/en/synthwave.webp" alt="Home screen with the synthwave skin" width="720" height="592" loading="lazy">
+        <div class="shot-pending" role="img" aria-label="Placebo-free mode photo coming soon">Placebo-free mode photo coming soon</div>
+      </figure>
+      <div>
+        <h3>Placebo-free mode: log without seeing pressure, then compare</h3>
+        <ul>
+          <li>For 10 days, hide pressure on Home and History and log how you feel only</li>
+          <li>Pressure notices pause; record reminders at morning and evening still arrive</li>
+          <li>Afterwards, compare your log with how pressure moved</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="feature">
+      <figure class="shot">
+        <img src="./assets/en/turn.webp" alt="Subscribed home: week-strip marks, best window, and next-turn notice" width="720" height="313" loading="lazy">
+      </figure>
+      <div>
+        <h3>Line up notices and display from your log</h3>
+        <ul>
+          <li>Apply what Compare shows to “Pressure and how you feel”</li>
+          <li>Notice timing before tougher phases then follows that pattern</li>
+          <li>Week-strip marks update the same way (the annual plan also uses it for a suggested better window)</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <h2>How to use it</h2>
+    <ol class="flow">
+      <li>Choose the phases that tend to affect you</li>
+      <li>Get a notice before those phases and adjust plans if you want</li>
+      <li>Log how you feel and line it up with pressure changes</li>
+      <li>For the land around you or elevators and other up-and-down moves, use Travel mode to capture height-driven pressure changes and split them from weather</li>
+      <li>To reduce guesswork, use Placebo-free mode and compare afterwards</li>
+      <li>Apply what you learned so notice timing and the week strip match you</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Free vs annual plan</h2>
+    <div class="compare">
+      <article>
+        <h3>Included free</h3>
+        <ul>
+          <li>Records, notices, and the 48-hour pressure view</li>
+          <li>Travel mode (capture and break down pressure changes from the land and from going up or down)</li>
+          <li>Placebo-free mode</li>
+          <li>Apply your log so notices and the week strip match you</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Annual plan (7-day free trial)</h3>
+        <ul>
+          <li>Pressure graph and week strip up to 7 days ahead</li>
+          <li>A suggested window this week when you may feel best, based on the pattern you chose</li>
+          <li>Export records in a form you can share with a doctor</li>
+        </ul>
+      </article>
+    </div>
+    <p class="terms" style="color:var(--muted);font-size:0.9375rem;margin:1rem 0 0">If you cancel during the trial, you will not be charged. The subscription renews automatically every year unless you cancel at least 24 hours before the renewal date.</p>
+  </section>
+
+  <section>
+    <h2>FAQ</h2>
+    <dl class="faq">
+      <dt>Is this a weather forecast app?</dt>
+      <dd>No. Pressure values are numerical model output from MET Norway. They are not a forecast, and this app does not make its own predictions.</dd>
+      <dt>Does the app decide when I will feel worse?</dt>
+      <dd>No. You choose the phases that tend to affect you and check your own pattern with your log. It is not for diagnosis or treatment.</dd>
+      <dt>What stays free?</dt>
+      <dd>Records, notices, the 48-hour view, Travel mode, and Placebo-free mode are free. The 7-day graph, week strip, and export are on the annual plan.</dd>
+      <dt>How do I cancel the annual plan?</dt>
+      <dd>Use Settings › your name › Subscriptions on iPhone, or open the same place from the app settings. Cancel during the trial and you will not be charged.</dd>
+      <dt>Do my records move when I change phones?</dt>
+      <dd>No. Records stay on the device. You can restore the annual plan with Restore purchases.</dd>
+      <dt>I am not getting notices.</dt>
+      <dd>Check system notification permission and the in-app phase and notice settings. Nothing is sent while no chosen phase is ahead. During Placebo-free mode, pressure notices pause.</dd>
+      <dt>Why is there a Travel mode?</dt>
+      <dd>Pressure while you sit still does not tell you whether a change from the land or an elevator was weather or height. Travel mode captures those changes and shows the weather share and the height share on the breakdown card.</dd>
+      <dt>Do notices and the display follow my records?</dt>
+      <dd>Yes. When you apply what Compare shows to “Pressure and how you feel”, notice timing before tougher phases and the week-strip marks line up with that pattern. You can also choose the pattern yourself in Settings.</dd>
+      <dt>What is location used for?</dt>
+      <dd>Fetching pressure for where you are, and recording pressure and height changes in Travel mode. Outside Travel mode, location is not collected in the background.</dd>
+      <dt>Can I share records with a clinic?</dt>
+      <dd>The annual plan can export records in a form that is easier to hand over. It does not replace medical advice.</dd>
+    </dl>
+    <p style="margin-top:1.5rem"><a href="./manual-en.html">User guide</a> / <a href="./press-en.html">Press kit</a></p>
+  </section>
+
+  <section>
+    <h2>Look</h2>
+    <article class="feature">
+      <figure class="shot">
+        <img src="./assets/en/synthwave.webp" alt="Subscribed home with the synthwave skin" width="390" height="844" loading="lazy">
       </figure>
       <div>
         <h3>Skins</h3>
@@ -167,24 +288,6 @@
         </ul>
       </div>
     </article>
-
-    <div class="more">
-      <h3>Travel mode and placebo-free mode</h3>
-      <ul>
-        <li>Travel mode: record pressure changes while you travel, and separate changes caused by weather from changes caused by moving</li>
-        <li>Placebo-free mode: for 10 days, log how you feel without seeing any pressure data, then compare your log with the phases afterwards</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="plan">
-    <h2>Annual plan (7-day free trial)</h2>
-    <ul>
-      <li>Pressure graph and week strip up to 7 days ahead</li>
-      <li>A suggested window this week when you are likely to feel best, based on the pattern you chose</li>
-      <li>Export your records to share with your doctor</li>
-    </ul>
-    <p class="terms">Records, notices and the 48-hour view stay free without a subscription. If you cancel during the trial, you will not be charged. The subscription renews automatically every year unless you cancel at least 24 hours before the renewal date.</p>
   </section>
 
   <section>
@@ -210,6 +313,8 @@
 
 <footer class="wrap">
   <ul>
+    <li><a href="./manual-en.html">User guide</a></li>
+    <li><a href="./press-en.html">Press kit</a></li>
     <li><a href="./terms-en.html">Terms of Use</a></li>
     <li><a href="./privacy-en.html">Privacy Policy</a></li>
     <li><a href="./tokushoho-en.html">Notice under the Act on Specified Commercial Transactions</a></li>

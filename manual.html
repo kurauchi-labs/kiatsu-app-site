@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>操作マニュアル — KIATSU</title>
+<meta name="description" content="KIATSU の画面ごとの使い方。移動モードとプラシーボ排除モードの説明を含みます。">
+<link rel="canonical" href="https://kurauchi-labs.github.io/kiatsu-app-site/manual.html">
+<link rel="alternate" hreflang="ja" href="https://kurauchi-labs.github.io/kiatsu-app-site/manual.html">
+<link rel="alternate" hreflang="en" href="https://kurauchi-labs.github.io/kiatsu-app-site/manual-en.html">
+<link rel="icon" href="./assets/icon-192.png" type="image/png">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #5c5c5c;
+    --line: #e0e0e0;
+    --link: #0a5ec4;
+    --band: #fff6ec;
+    --accent: #a8346a;
+    --card: #ffffff;
+    --shadow: 0 1px 2px rgba(59, 42, 63, 0.08), 0 10px 28px rgba(59, 42, 63, 0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181c;
+      --fg: #e8e8e8;
+      --muted: #a0a0a0;
+      --line: #33363c;
+      --link: #6fb2ff;
+      --band: #1d2027;
+      --accent: #ff8fc0;
+      --card: #1f2229;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 28px rgba(0, 0, 0, 0.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+    line-height: 1.8;
+    font-size: 16px;
+  }
+  a { color: var(--link); }
+  img { max-width: 100%; height: auto; display: block; }
+  .wrap { max-width: 42rem; margin: 0 auto; padding: 0 1.25rem; }
+  .site-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1rem; padding-bottom: 1rem; }
+  .brand { display: flex; align-items: center; gap: 0.5rem; color: var(--fg); text-decoration: none; font-weight: 700; letter-spacing: 0.04em; }
+  .brand img { width: 32px; height: 32px; border-radius: 8px; }
+  h1 { font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.35; margin: 1.25rem 0 0.5rem; }
+  .lead { color: var(--muted); margin: 0 0 1.5rem; }
+  .toc { background: var(--band); border-radius: 14px; padding: 1rem 1.25rem; margin: 0 0 2rem; }
+  .toc ol { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+  .toc li { margin: 0.25rem 0; }
+  h2 { font-size: 1.3rem; margin: 2.75rem 0 0.75rem; padding-top: 1.25rem; border-top: 1px solid var(--line); scroll-margin-top: 1rem; }
+  h3 { font-size: 1.05rem; margin: 1.5rem 0 0.4rem; }
+  p, li { margin: 0.5rem 0; }
+  ul { padding-left: 1.25rem; }
+  figure { margin: 1rem 0 1.5rem; }
+  figure img { width: min(100%, 22rem); margin: 0 auto; border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+  figcaption { color: var(--muted); font-size: 0.875rem; text-align: center; margin-top: 0.5rem; }
+  .shot-pending { width: min(100%, 22rem); min-height: 14rem; margin: 0 auto; display: grid; place-items: center; padding: 1.25rem; border-radius: 16px; border: 1px dashed var(--line); background: var(--band); color: var(--muted); text-align: center; font-size: 0.9rem; }
+  .callout { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 0.9rem 1.1rem; margin: 1rem 0; box-shadow: var(--shadow); }
+  footer { margin-top: 3rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; padding: 1.25rem 0 3rem; }
+  footer ul { list-style: none; padding: 0; margin: 0 0 1rem; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+</style>
+</head>
+<body>
+<header class="wrap site-head">
+  <a class="brand" href="./"><img src="./assets/icon-192.png" alt="" width="32" height="32">KIATSU</a>
+  <a href="./manual-en.html" hreflang="en" lang="en">English</a>
+</header>
+
+<main class="wrap">
+  <h1>操作マニュアル</h1>
+  <p class="lead">画面や項目の名前は、アプリに表示される言葉のまま書いています。気圧の値は MET Norway の数値計算の結果で、気象の予報ではありません。</p>
+
+  <nav class="toc" aria-label="目次">
+    <strong>目次</strong>
+    <ol>
+      <li><a href="#intro">はじめに</a></li>
+      <li><a href="#onboarding">最初に開いたとき</a></li>
+      <li><a href="#home">ホーム</a></li>
+      <li><a href="#record">記録</a></li>
+      <li><a href="#history">履歴</a></li>
+      <li><a href="#movement">移動モード</a></li>
+      <li><a href="#settings">設定</a></li>
+      <li><a href="#plan">年額プラン</a></li>
+      <li><a href="#notices">通知の種類</a></li>
+      <li><a href="#placebo">答え合わせ（プラシーボ排除モード）</a></li>
+      <li><a href="#troubleshoot">困ったとき</a></li>
+      <li><a href="#glossary">用語</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="intro">1. はじめに</h2>
+  <p>KIATSU は、気圧の上がり下がりと体調の記録を見比べて、気圧がどう動くときに自分がしんどくなりやすいかを確かめるアプリです。病気の診断・治療・予防を目的としたものではありません。</p>
+  <p>ほかの気圧アプリにはあまりない機能が3つあり、どれも無料で使えます。</p>
+  <ul>
+    <li><strong>移動モード</strong>：坂道や山、エレベーターなどで高さが変わったときの気圧の変化を記録し、天気によるものと高さによるものに分けて見せます</li>
+    <li><strong>プラシーボ排除モード</strong>：気圧を見ないまま体調を記録し、あとで答え合わせします</li>
+    <li><strong>記録の反映</strong>：記録から見えた傾向を設定に取り込み、通知と表示を自分に合わせます</li>
+  </ul>
+
+  <h2 id="onboarding">2. 最初に開いたとき</h2>
+  <figure>
+    <img src="./assets/manual/ja/onboarding-0.webp" alt="はじめての画面の一例" width="390" height="844" loading="lazy">
+    <figcaption>初回の案内（例）</figcaption>
+  </figure>
+  <p>最初に開くと、気圧と体調の関係や、通知と位置情報の許可について何枚かの画面で説明します。「はじめる」まで進むとホームが開きます。許可しなくても基本の画面は使えますが、いまいる場所の気圧を見るときと移動モードを使うときは、位置情報の許可が必要です。</p>
+
+  <h2 id="home">3. ホーム</h2>
+  <figure>
+    <img src="./assets/manual/ja/home.webp" alt="年額プラン加入中のホーム画面" width="390" height="844" loading="lazy">
+    <figcaption>年額プラン加入中のホーム。7日先までのグラフ、週の帯、今週いちばん調子が良い窓、移動モードの開始ボタンが並びます</figcaption>
+  </figure>
+  <ul>
+    <li>いまの局面（下降・上昇・変わり目・安定）と、次の折り返しまでのおおよその時間</li>
+    <li>48時間先までの気圧のグラフ（年額プランでは7日先まで）</li>
+    <li>週の帯：曜日ごとに並んだ札です。不調になりやすい日には印が付きます</li>
+    <li>「移動モードを開始」を押すと、移動中の記録が始まります</li>
+  </ul>
+  <p>プラシーボ排除モードのあいだは、気圧のグラフと局面と印が隠れます。</p>
+
+  <h2 id="record">4. 記録</h2>
+  <figure>
+    <img src="./assets/manual/ja/record.webp" alt="記録画面" width="390" height="844" loading="lazy">
+    <figcaption>いまの体調を5段階で選ぶ</figcaption>
+  </figure>
+  <p>いまの体調を5つの顔から選び、必要ならメモを書いて記録します。そのときの気圧は、アプリが自動で記録に添えます（プラシーボ排除モードのあいだは、気圧を画面に出しません）。</p>
+
+  <h2 id="history">5. 履歴</h2>
+  <figure>
+    <div class="shot-pending">履歴の写真は準備中（実機で撮影予定）</div>
+    <figcaption>週・月の履歴と、移動による気圧変化</figcaption>
+  </figure>
+  <p>週ごと、月ごとに、これまでの気圧と体調の記録を振り返れます。画面下の「移動による気圧変化」からは、過去の移動の記録を開けます。年額プランでは、医師に見せやすい形で記録を書き出せます。</p>
+
+  <h2 id="movement">6. 移動モード</h2>
+  <figure>
+    <div class="shot-pending">移動モード詳細の写真は準備中（実機で撮影予定）</div>
+    <figcaption>詳細画面と「変化の内訳」</figcaption>
+  </figure>
+  <p>坂道や山、エレベーターなどで高さが変わったときの気圧の変化を記録します。ホームの「移動モードを開始」から始めます。初めて使うときは、位置情報を「常に」許可するよう求められることがあります。移動モードを使っていないときに、裏で位置を取ることはありません。</p>
+  <h3>記録中</h3>
+  <ul>
+    <li>画面を消しても、ほかのアプリを使っていても記録は続きます</li>
+    <li>記録中は、画面上部のステータスバーに青い表示が出ます</li>
+    <li>気圧が急に変わると（標準の設定では、10分でおよそ3hPa）、何による変化かの目安を添えて通知します</li>
+    <li>30分ほど動きがないと、自動で終わります</li>
+  </ul>
+  <h3>変化の内訳</h3>
+  <p>詳細画面の「変化の内訳」には、次の3つが出ます。</p>
+  <ul>
+    <li>高さの分：高さが変わったことによる気圧の変化（GPS で測った高さの差も出ます）</li>
+    <li>天気の分：まわりの天気による気圧の変化（周辺の海面気圧の動きから求めます）</li>
+    <li>横に移動した距離（参考に出すだけで、気圧を分ける計算には使いません）</li>
+  </ul>
+  <div class="callout">気圧センサーのない端末では、同じ建物の中でエレベーターなどで上り下りしたときの変化は測れません。また、屋外で始めると GPS の高さが取りやすく、高さの分を出しやすくなります。</div>
+
+  <h2 id="settings">7. 設定</h2>
+  <figure>
+    <img src="./assets/manual/ja/settings.webp" alt="設定画面" width="390" height="844" loading="lazy">
+    <figcaption>設定の各節</figcaption>
+  </figure>
+  <p>設定画面のおもな項目です。</p>
+  <ul>
+    <li>サブスクリプション（年額プランの購入、復元、解約の入口）</li>
+    <li>地点</li>
+    <li>気圧と体調の関係（不調になりやすい局面）</li>
+    <li>プラシーボ排除モード</li>
+    <li>通知</li>
+    <li>表示・スキン</li>
+    <li>データ</li>
+  </ul>
+
+  <h2 id="plan">8. 年額プラン</h2>
+  <figure>
+    <img src="./assets/manual/ja/subscription.webp" alt="年額プラン加入中の画面" width="390" height="844" loading="lazy">
+    <figcaption>加入中の画面。次の更新日と、解約・復元のボタンが出ます</figcaption>
+  </figure>
+  <ul>
+    <li>7日先までの気圧のグラフと週の帯</li>
+    <li>自分で選んだ傾向をもとにした、今週いちばん調子が良さそうな時間帯の目安</li>
+    <li>記録の書き出し</li>
+  </ul>
+  <p>記録、通知、48時間先までの表示、移動モード、プラシーボ排除モードは、加入しなくても使えます。7日間の無料お試し中に解約すれば、料金はかかりません。解約は iPhone の「設定 › 自分の名前 › サブスクリプション」で行えます。アプリの設定画面からも解約の画面を開けます。</p>
+
+  <h2 id="notices">9. 通知の種類</h2>
+  <ul>
+    <li>選んだ局面が来る前の知らせ（1時間前、3時間前、6時間前から選べます）</li>
+    <li>移動モード中に気圧が急に変わったときの知らせ（何による変化かの目安つき）</li>
+    <li>プラシーボ排除モード中の、記録を促す知らせ（9:00 と 21:00。気圧の知らせは止まります）</li>
+    <li>答え合わせができるようになったときの知らせ</li>
+  </ul>
+
+  <h2 id="placebo">10. 答え合わせ（プラシーボ排除モード）</h2>
+  <figure>
+    <div class="shot-pending">プラシーボ排除モードの写真は準備中</div>
+    <figcaption>気圧を隠した記録と、終了後の答え合わせ</figcaption>
+  </figure>
+  <p>設定の「プラシーボ排除モード」から始めます。10日間、ホームと履歴と通知から気圧を隠し、体調だけを記録します。思い込みが入らないよう、モードのあいだは傾向の設定を変えられません。</p>
+  <ul>
+    <li>記録を促す知らせが 9:00 と 21:00 に届きます</li>
+    <li>モードのあいだ、気圧の知らせは止まります</li>
+    <li>終わったら「答え合わせを見る」から、気圧の動きと自分の記録を見比べられます</li>
+    <li>傾向がはっきり出た局面は「反映」でき、通知のタイミングと週の帯の印が自分の記録に合ったものになります</li>
+    <li>途中でやめた場合は、それまでの記録で答え合わせします（記録が少ない局面は「判断しない」になります）</li>
+  </ul>
+
+  <h2 id="troubleshoot">11. 困ったとき</h2>
+  <ul>
+    <li><strong>通知が来ない</strong>：端末の通知の許可と、アプリの「気圧と体調の関係」「通知」の設定を確かめてください。選んだ局面がしばらく来ないときは、通知は届きません。プラシーボ排除モードのあいだは、気圧の知らせが止まります。</li>
+    <li><strong>移動モードを始められない</strong>：位置情報の許可を確かめてください。移動中に記録を続けるには「常に」の許可が要ることがあります。</li>
+    <li><strong>年額プランが使えない</strong>：購入したときと同じ Apple アカウントで、購入画面の「購入を復元」を試してください。</li>
+    <li><strong>機種変更したら記録が消えた</strong>：記録は端末の中にだけ保存しているため、新しい端末へは移りません。</li>
+  </ul>
+  <p>解決しないときは <a href="./support.html">サポート</a> へご連絡ください。お使いの機種と iOS のバージョン、起きたことを書いていただけると助かります。</p>
+
+  <h2 id="glossary">12. 用語</h2>
+  <ul>
+    <li><strong>局面</strong>：下降、上昇、変わり目、安定など、気圧がどう動いているか</li>
+    <li><strong>折り返し</strong>：計算の上で、次に局面が切り替わるおおよその時刻</li>
+    <li><strong>週の帯</strong>：ホームにある、曜日ごとの7枚の札</li>
+    <li><strong>印</strong>：不調になりやすい日に付く記号</li>
+    <li><strong>変化の内訳</strong>：移動モードで、気圧の変化を高さの分と天気の分に分けて見せるカード</li>
+    <li><strong>計算値</strong>：MET Norway の数値計算で求めた気圧の値</li>
+    <li><strong>hPa</strong>：気圧の単位、ヘクトパスカル</li>
+    <li><strong>答え合わせ</strong>：プラシーボ排除モードが終わったあと、自分の記録と気圧の動きを見比べる画面</li>
+  </ul>
+</main>
+
+<footer class="wrap">
+  <ul>
+    <li><a href="./">紹介</a></li>
+    <li><a href="./press.html">紹介素材</a></li>
+    <li><a href="./support.html">サポート</a></li>
+    <li><a href="./terms.html">利用規約</a></li>
+    <li><a href="./privacy.html">プライバシー</a></li>
+  </ul>
+  <p>開発: Tatsuya Kurauchi</p>
+</footer>
+</body>
+</html>

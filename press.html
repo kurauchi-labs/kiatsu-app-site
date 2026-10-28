@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>紹介素材 — KIATSU</title>
+<meta name="description" content="KIATSU を紹介するときの投稿文・写真の添え文・紹介するときに避けてほしい言い方の一覧です。">
+<link rel="canonical" href="https://kurauchi-labs.github.io/kiatsu-app-site/press.html">
+<link rel="alternate" hreflang="ja" href="https://kurauchi-labs.github.io/kiatsu-app-site/press.html">
+<link rel="alternate" hreflang="en" href="https://kurauchi-labs.github.io/kiatsu-app-site/press-en.html">
+<link rel="icon" href="./assets/icon-192.png" type="image/png">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #5c5c5c;
+    --line: #e0e0e0;
+    --link: #0a5ec4;
+    --band: #fff6ec;
+    --accent: #a8346a;
+    --card: #ffffff;
+    --shadow: 0 1px 2px rgba(59, 42, 63, 0.08), 0 10px 28px rgba(59, 42, 63, 0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181c;
+      --fg: #e8e8e8;
+      --muted: #a0a0a0;
+      --line: #33363c;
+      --link: #6fb2ff;
+      --band: #1d2027;
+      --accent: #ff8fc0;
+      --card: #1f2229;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 28px rgba(0, 0, 0, 0.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+    line-height: 1.8;
+    font-size: 16px;
+  }
+  a { color: var(--link); }
+  .wrap { max-width: 42rem; margin: 0 auto; padding: 0 1.25rem; }
+  .site-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1rem; padding-bottom: 1rem; }
+  .brand { display: flex; align-items: center; gap: 0.5rem; color: var(--fg); text-decoration: none; font-weight: 700; letter-spacing: 0.04em; }
+  .brand img { width: 32px; height: 32px; border-radius: 8px; }
+  h1 { font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.35; margin: 1.5rem 0 0.5rem; }
+  .lead { color: var(--muted); margin: 0 0 2rem; }
+  h2 { font-size: 1.25rem; margin: 2.5rem 0 1rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+  h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    box-shadow: var(--shadow);
+    margin: 0.75rem 0;
+  }
+  .copy-text { white-space: pre-wrap; margin: 0 0 0.75rem; font-size: 0.975rem; }
+  .row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+  button.copy {
+    appearance: none;
+    border: 1px solid var(--line);
+    background: var(--band);
+    color: var(--fg);
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem;
+    font: inherit;
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+  button.copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .copied { color: var(--accent); font-size: 0.875rem; min-height: 1.25em; }
+  .tags { color: var(--muted); font-size: 0.9375rem; }
+  .shot-grid { display: grid; gap: 1rem; }
+  figure { margin: 0; }
+  figure img { width: 100%; border-radius: 12px; border: 1px solid var(--line); }
+  figcaption { color: var(--muted); font-size: 0.875rem; margin-top: 0.5rem; }
+  .shot-pending { min-height: 10rem; display: grid; place-items: center; padding: 1rem; border-radius: 12px; border: 1px dashed var(--line); background: var(--band); color: var(--muted); text-align: center; font-size: 0.9rem; }
+  ul { padding-left: 1.25rem; }
+  li { margin: 0.35rem 0; }
+  footer { margin-top: 3rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; padding: 1.25rem 0 3rem; }
+  footer ul { list-style: none; padding: 0; margin: 0 0 1rem; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+  @media (min-width: 40rem) {
+    .shot-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="wrap site-head">
+  <a class="brand" href="./"><img src="./assets/icon-192.png" alt="" width="32" height="32">KIATSU</a>
+  <a class="lang" href="./press-en.html" hreflang="en" lang="en">English</a>
+</header>
+
+<main class="wrap">
+  <h1>紹介素材</h1>
+  <p class="lead">SNS やブログで KIATSU を紹介していただくときに使える文面です。そのままコピーして貼り付けられます。特に伝えてほしいのは、<strong>高さが変わったときの気圧の変化を分けて記録できること</strong>、<strong>プラシーボ排除モード</strong>、<strong>記録に合わせて通知と表示が変わること</strong>の3つです。</p>
+
+  <h2>X 用の短文</h2>
+
+  <h3>公開のお知らせ</h3>
+  <div class="card" data-copy>
+    <p class="copy-text">気圧と体調の記録を見比べるアプリ「KIATSU」を公開しました。
+坂道やエレベーターでの気圧の変化を天気の分と高さの分に分けて記録できる移動モード、気圧を見ずに記録してあとで答え合わせするプラシーボ排除モード、記録に合わせて通知が変わる仕組みが入っています。
+https://kurauchi-labs.github.io/kiatsu-app-site/</p>
+    <div class="row"><button type="button" class="copy">コピー</button><span class="copied" aria-live="polite"></span></div>
+  </div>
+
+  <h3>移動モードの紹介</h3>
+  <div class="card" data-copy>
+    <p class="copy-text">坂道やエレベーターで「いま気圧が変わった」と感じても、天気のせいか高さのせいかは、ふつうの気圧表示ではわかりません。
+KIATSU の移動モードは、その変化を「変化の内訳」で天気の分と高さの分に分けて見せます。
+答え合わせの結果を反映すれば、通知も自分に合わせて変わります。</p>
+    <div class="row"><button type="button" class="copy">コピー</button><span class="copied" aria-live="polite"></span></div>
+  </div>
+
+  <h3>7日間無料</h3>
+  <div class="card" data-copy>
+    <p class="copy-text">KIATSU の年額プランは7日間無料です。
+記録、通知、48時間先までの表示、移動モード、プラシーボ排除モードは、加入しなくても使えます。
+お試し中に解約すれば、料金はかかりません。</p>
+    <div class="row"><button type="button" class="copy">コピー</button><span class="copied" aria-live="polite"></span></div>
+  </div>
+
+  <h2>Instagram 用</h2>
+  <div class="card" data-copy>
+    <p class="copy-text">気圧が変わるとしんどくなる。でも、気圧が下がるときなのか、上がるときなのか、しんどくなるタイミングは人それぞれです。
+
+KIATSU は、気圧の上がり下がりと体調の記録を見比べて、自分の傾向を確かめるアプリです。
+
+できること
+・移動モード：坂道やエレベーターなどで高さが変わったときの気圧の変化を、天気の分と高さの分に分けて記録
+・プラシーボ排除モード：10日間、気圧を見ずに体調だけを記録して、あとで答え合わせ
+・記録の反映：見えてきた傾向を設定に取り込むと、通知のタイミングと週の帯が自分に合わせて変わる
+
+アカウント登録は要りません。記録は端末の中だけに保存し、広告も利用状況の解析も入れていません。
+
+App Store で「KIATSU」
+https://apps.apple.com/jp/app/id6799972657
+
+#KIATSU #気圧 #天気痛 #気象病 #体調記録</p>
+    <div class="row"><button type="button" class="copy">コピー</button><span class="copied" aria-live="polite"></span></div>
+  </div>
+  <p class="tags">ハッシュタグ案: #KIATSU #気圧 #天気痛 #気象病 #体調記録</p>
+
+  <h2>ブログ向けの長文</h2>
+  <div class="card" data-copy>
+    <p class="copy-text">「KIATSU 気圧を味方にする」は、気圧の数値計算の結果と自分の体調の記録を見比べる iPhone アプリです。気象の予報アプリではなく、診断や治療を目的としたものでもありません。
+
+記録、通知、48時間先までの表示は無料で使えます。移動モードも無料で、坂道や山、エレベーターなどで高さが変わったときの気圧の変化を記録し、「変化の内訳」で天気の分と高さの分に分けて見せます。じっとしているときのグラフには出てこない、高さによる変化を記録できるのがこのモードの特長です。画面を消していても記録は続き、気圧が急に変わったときは通知で知らせます。
+
+プラシーボ排除モードでは、10日間、ホームや履歴から気圧を隠して体調だけを記録します。そのあいだは気圧の知らせも止まり、終わってから気圧の動きと答え合わせします。見えてきた傾向を「気圧と体調の関係」に反映すると、通知のタイミングと週の帯の印が自分の記録に合わせて変わります。
+
+年額プラン（7日間無料）に加入すると、7日先までのグラフと週の帯、医師に見せやすい形での記録の書き出しなどが使えます。お試し中に解約すれば、料金はかかりません。
+
+気圧の値は、MET Norway（ノルウェー気象研究所）が公開している数値計算の結果です。誤差があるため、実際に測った値とずれることがあります。</p>
+    <div class="row"><button type="button" class="copy">コピー</button><span class="copied" aria-live="polite"></span></div>
+  </div>
+
+  <h2>写真と添え文</h2>
+  <div class="shot-grid">
+    <figure>
+      <img src="./assets/ja/home.webp" alt="加入中のホーム画面" width="390" height="844" loading="lazy">
+      <figcaption>年額プラン加入中のホーム。7日先までのグラフと、今週いちばん調子が良い窓。</figcaption>
+    </figure>
+    <figure>
+      <div class="shot-pending">移動モードの写真は準備中</div>
+      <figcaption>移動モード。高さが変わったときの気圧の変化を、天気の分と高さの分に分けて見せる画面。</figcaption>
+    </figure>
+    <figure>
+      <div class="shot-pending">プラシーボ排除モードの写真は準備中</div>
+      <figcaption>プラシーボ排除モード。気圧を見ずに記録し、あとで答え合わせする画面。</figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/ja/synthwave.webp" alt="加入中・シンセウェーブのスキン" width="390" height="844" loading="lazy">
+      <figcaption>スキンの例（年額プラン加入中）。好みの見た目に変えられます。</figcaption>
+    </figure>
+  </div>
+
+  <h2>名前と開発者</h2>
+  <ul>
+    <li>アプリ名: KIATSU 気圧を味方にする</li>
+    <li>開発: Tatsuya Kurauchi</li>
+    <li>サイト: <a href="./">https://kurauchi-labs.github.io/kiatsu-app-site/</a></li>
+    <li>App Store: <a href="https://apps.apple.com/jp/app/id6799972657">id6799972657</a></li>
+    <li>問い合わせ: <a href="mailto:kurauchimlab@gmail.com">kurauchimlab@gmail.com</a></li>
+  </ul>
+
+  <h2>紹介するときに避けてほしい言い方</h2>
+  <ul>
+    <li>「予報する」「予測する」（「予報ではありません」のような打ち消しの形なら使えます）</li>
+    <li>「診断する」「治療する」「治る」「防ぐ」</li>
+    <li>効果を約束する言い方や、病院などの医療機関の代わりになると受け取れる言い方</li>
+  </ul>
+  <p>操作の詳しい説明は <a href="./manual.html">操作マニュアル</a> にあります。</p>
+</main>
+
+<footer class="wrap">
+  <ul>
+    <li><a href="./">紹介</a></li>
+    <li><a href="./manual.html">操作マニュアル</a></li>
+    <li><a href="./support.html">サポート</a></li>
+    <li><a href="./terms.html">利用規約</a></li>
+    <li><a href="./privacy.html">プライバシー</a></li>
+  </ul>
+  <p>開発: Tatsuya Kurauchi</p>
+</footer>
+<script>
+(function () {
+  document.querySelectorAll("[data-copy]").forEach(function (card) {
+    var btn = card.querySelector("button.copy");
+    var textEl = card.querySelector(".copy-text");
+    var status = card.querySelector(".copied");
+    if (!btn || !textEl) return;
+    btn.addEventListener("click", function () {
+      var text = textEl.innerText.replace(/\n+$/, "");
+      var done = function () {
+        if (status) status.textContent = "コピーしました";
+        window.setTimeout(function () { if (status) status.textContent = ""; }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(function () {
+          status.textContent = "選択してコピーしてください";
+        });
+      } else {
+        status.textContent = "選択してコピーしてください";
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User guide — KIATSU</title>
+<meta name="description" content="How to use each screen in KIATSU, including Travel mode and Placebo-free mode.">
+<link rel="canonical" href="https://kurauchi-labs.github.io/kiatsu-app-site/manual-en.html">
+<link rel="alternate" hreflang="en" href="https://kurauchi-labs.github.io/kiatsu-app-site/manual-en.html">
+<link rel="alternate" hreflang="ja" href="https://kurauchi-labs.github.io/kiatsu-app-site/manual.html">
+<link rel="icon" href="./assets/icon-192.png" type="image/png">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #5c5c5c;
+    --line: #e0e0e0;
+    --link: #0a5ec4;
+    --band: #fff6ec;
+    --accent: #a8346a;
+    --card: #ffffff;
+    --shadow: 0 1px 2px rgba(59, 42, 63, 0.08), 0 10px 28px rgba(59, 42, 63, 0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181c;
+      --fg: #e8e8e8;
+      --muted: #a0a0a0;
+      --line: #33363c;
+      --link: #6fb2ff;
+      --band: #1d2027;
+      --accent: #ff8fc0;
+      --card: #1f2229;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 28px rgba(0, 0, 0, 0.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  a { color: var(--link); }
+  img { max-width: 100%; height: auto; display: block; }
+  .wrap { max-width: 42rem; margin: 0 auto; padding: 0 1.25rem; }
+  .site-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1rem; padding-bottom: 1rem; }
+  .brand { display: flex; align-items: center; gap: 0.5rem; color: var(--fg); text-decoration: none; font-weight: 700; letter-spacing: 0.04em; }
+  .brand img { width: 32px; height: 32px; border-radius: 8px; }
+  h1 { font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.35; margin: 1.25rem 0 0.5rem; }
+  .lead { color: var(--muted); margin: 0 0 1.5rem; }
+  .toc { background: var(--band); border-radius: 14px; padding: 1rem 1.25rem; margin: 0 0 2rem; }
+  .toc ol { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+  .toc li { margin: 0.25rem 0; }
+  h2 { font-size: 1.3rem; margin: 2.75rem 0 0.75rem; padding-top: 1.25rem; border-top: 1px solid var(--line); scroll-margin-top: 1rem; }
+  h3 { font-size: 1.05rem; margin: 1.5rem 0 0.4rem; }
+  p, li { margin: 0.5rem 0; }
+  ul { padding-left: 1.25rem; }
+  figure { margin: 1rem 0 1.5rem; }
+  figure img { width: min(100%, 22rem); margin: 0 auto; border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+  figcaption { color: var(--muted); font-size: 0.875rem; text-align: center; margin-top: 0.5rem; }
+  .shot-pending { width: min(100%, 22rem); min-height: 14rem; margin: 0 auto; display: grid; place-items: center; padding: 1.25rem; border-radius: 16px; border: 1px dashed var(--line); background: var(--band); color: var(--muted); text-align: center; font-size: 0.9rem; }
+  .callout { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 0.9rem 1.1rem; margin: 1rem 0; box-shadow: var(--shadow); }
+  footer { margin-top: 3rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; padding: 1.25rem 0 3rem; }
+  footer ul { list-style: none; padding: 0; margin: 0 0 1rem; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+</style>
+</head>
+<body>
+<header class="wrap site-head">
+  <a class="brand" href="./index-en.html"><img src="./assets/icon-192.png" alt="" width="32" height="32">KIATSU</a>
+  <a href="./manual.html" hreflang="ja" lang="ja">日本語</a>
+</header>
+
+<main class="wrap">
+  <h1>User guide</h1>
+  <p class="lead">Screen names match the app. Pressure values are numerical model output from MET Norway — not a weather forecast.</p>
+
+  <nav class="toc" aria-label="Contents">
+    <strong>Contents</strong>
+    <ol>
+      <li><a href="#intro">About KIATSU</a></li>
+      <li><a href="#onboarding">First launch</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#record">Record</a></li>
+      <li><a href="#history">History</a></li>
+      <li><a href="#movement">Travel mode</a></li>
+      <li><a href="#settings">Settings</a></li>
+      <li><a href="#plan">Annual plan</a></li>
+      <li><a href="#notices">Notices</a></li>
+      <li><a href="#placebo">Compare (Placebo-free mode)</a></li>
+      <li><a href="#troubleshoot">If something is wrong</a></li>
+      <li><a href="#glossary">Terms</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="intro">1. About KIATSU</h2>
+  <p>KIATSU lines up the rise and fall of air pressure with your symptom log so you can see which phases tend to affect you. It is not intended to diagnose, treat, or prevent disease.</p>
+  <p>Uncommon tools: <strong>Travel mode</strong> (capture pressure changes from the land and from elevators and other up-and-down moves; split weather from height), <strong>Placebo-free mode</strong> (hide pressure while you log, then compare), and <strong>applying your log</strong> so notices and the week strip match you. These stay in the free set.</p>
+
+  <h2 id="onboarding">2. First launch</h2>
+  <figure>
+    <img src="./assets/manual/ja/onboarding-0.webp" alt="Example first-launch screen" width="390" height="844" loading="lazy">
+    <figcaption>First-launch guide (example; Japanese UI shown)</figcaption>
+  </figure>
+  <p>The first screens explain pressure and symptoms, then ask about notices and location. You can use the basic UI without granting permission, but location is required for local pressure and Travel mode.</p>
+
+  <h2 id="home">3. Home</h2>
+  <figure>
+    <img src="./assets/manual/en/home.webp" alt="Subscribed home screen" width="390" height="844" loading="lazy">
+    <figcaption>Subscribed home: 7-day graph, week strip, best window, Travel mode start</figcaption>
+  </figure>
+  <ul>
+    <li>Current phase (falling, rising, turning, stable) and time to the next turn</li>
+    <li>Pressure graph for the next 48 hours (up to 7 days on the annual plan)</li>
+    <li>Week strip: seven day cards with marks on days that may be harder</li>
+    <li>“Start travel mode” begins a travel recording</li>
+  </ul>
+  <p>During Placebo-free mode, the graph, phases, and marks stay hidden until the mode ends.</p>
+
+  <h2 id="record">4. Record</h2>
+  <figure>
+    <img src="./assets/manual/en/record.webp" alt="Record screen" width="390" height="844" loading="lazy">
+    <figcaption>Pick one of five faces for how you feel</figcaption>
+  </figure>
+  <p>Choose how you feel, add an optional note, and save. The app attaches pressure context for that moment (hidden during Placebo-free mode).</p>
+
+  <h2 id="history">5. History</h2>
+  <figure>
+    <div class="shot-pending">History photo coming soon (device shot)</div>
+    <figcaption>Week/month history and travel pressure changes</figcaption>
+  </figure>
+  <p>Review past pressure and symptom logs by week or month. Open past travel sessions from “Pressure changes due to travel”. The annual plan can export records for a clinician.</p>
+
+  <h2 id="movement">6. Travel mode</h2>
+  <figure>
+    <div class="shot-pending">Travel mode detail photo coming soon (device shot)</div>
+    <figcaption>Detail screen and the breakdown card</figcaption>
+  </figure>
+  <p>Record pressure changes from the lay of the land, or elevators and other up-and-down moves. Start from “Start travel mode” on Home. The first start may ask for Always location. Outside Travel mode, location is not collected in the background.</p>
+  <h3>While recording</h3>
+  <ul>
+    <li>Continues with the screen off or in another app</li>
+    <li>iOS shows its blue background-location indicator</li>
+    <li>Sudden shifts (about 3 hPa in 10 minutes on the default setting) can notify you with a cause hint</li>
+    <li>Stops automatically after roughly 30 minutes without movement</li>
+  </ul>
+  <h3>Breakdown</h3>
+  <p>The breakdown card separates:</p>
+  <ul>
+    <li>Height share (with GPS height change)</li>
+    <li>Weather share (nearby sea-level pressure movement)</li>
+    <li>Horizontal distance (not used to split pressure)</li>
+  </ul>
+  <div class="callout">On devices without a barometer, elevator-style up/down in place cannot be measured. Starting outdoors makes height data more reliable.</div>
+
+  <h2 id="settings">7. Settings</h2>
+  <figure>
+    <img src="./assets/manual/en/settings.webp" alt="Settings screen" width="390" height="844" loading="lazy">
+    <figcaption>Settings sections</figcaption>
+  </figure>
+  <ul>
+    <li>Subscription (plan, restore, cancel)</li>
+    <li>Location</li>
+    <li>Pressure and how you feel (phases you chose)</li>
+    <li>Placebo-free mode</li>
+    <li>Notices</li>
+    <li>Display and skins</li>
+    <li>Data</li>
+  </ul>
+
+  <h2 id="plan">8. Annual plan</h2>
+  <figure>
+    <img src="./assets/manual/ja/subscription.webp" alt="Subscribed annual plan screen" width="390" height="844" loading="lazy">
+    <figcaption>Subscribed screen (renewal date, manage/cancel; Japanese UI shown)</figcaption>
+  </figure>
+  <ul>
+    <li>Graph and week strip up to 7 days ahead</li>
+    <li>A suggested window this week based on the pattern you chose</li>
+    <li>Export for sharing with a clinician</li>
+  </ul>
+  <p>Records, notices, the 48-hour view, Travel mode, and Placebo-free mode stay free. Cancel during the 7-day trial and you will not be charged. Manage the subscription under iPhone Settings › your name › Subscriptions, or open the same place from the app.</p>
+
+  <h2 id="notices">9. Notices</h2>
+  <ul>
+    <li>Before a phase you chose (1, 3, or 6 hours ahead)</li>
+    <li>Sudden shifts during Travel mode (with a cause hint)</li>
+    <li>Record reminders during Placebo-free mode (09:00 and 21:00; pressure notices pause)</li>
+    <li>When a compare result is ready</li>
+  </ul>
+
+  <h2 id="placebo">10. Compare (Placebo-free mode)</h2>
+  <figure>
+    <div class="shot-pending">Placebo-free mode photo coming soon</div>
+    <figcaption>Hidden pressure while logging, then compare</figcaption>
+  </figure>
+  <p>Start from Settings › Placebo-free mode. For 10 days, pressure stays hidden on Home, History, and notices while you log how you feel. Phase settings stay locked during the mode to reduce bias.</p>
+  <ul>
+    <li>Record reminders at 09:00 and 21:00</li>
+    <li>Pressure notices pause</li>
+    <li>When finished, open Compare to line up your log with pressure movement</li>
+    <li>Clear findings can be applied so notice timing and week-strip marks match you</li>
+    <li>If you stop early, Compare uses what you have so far (sparse phases may show “no judgment”)</li>
+  </ul>
+
+  <h2 id="troubleshoot">11. If something is wrong</h2>
+  <ul>
+    <li><strong>No notices</strong> — Check system permission and in-app phase/notice settings. Nothing is sent while no chosen phase is ahead. Pressure notices pause in Placebo-free mode.</li>
+    <li><strong>Cannot start Travel mode</strong> — Check location permission (Always may be required for background recording).</li>
+    <li><strong>Annual plan missing</strong> — Use Restore purchases with the same Apple ID.</li>
+    <li><strong>No records after a phone change</strong> — Records stay on device only.</li>
+  </ul>
+  <p>If it still fails, contact <a href="./support.html" hreflang="ja">Support</a> with your device, OS version, and what happened.</p>
+
+  <h2 id="glossary">12. Terms</h2>
+  <ul>
+    <li><strong>Phase</strong> — falling, rising, turning, stable, and similar states</li>
+    <li><strong>Turn</strong> — the calculated time when the phase is next expected to change</li>
+    <li><strong>Week strip</strong> — the seven day cards on Home</li>
+    <li><strong>Mark</strong> — a symbol on days that may be harder for you</li>
+    <li><strong>Breakdown</strong> — Travel mode card that separates height and weather shares</li>
+    <li><strong>Model value / hPa</strong> — MET Norway numerical output, in hectopascals</li>
+    <li><strong>Compare</strong> — the Placebo-free mode result screen</li>
+  </ul>
+</main>
+
+<footer class="wrap">
+  <ul>
+    <li><a href="./index-en.html">About</a></li>
+    <li><a href="./press-en.html">Press kit</a></li>
+    <li><a href="./support.html" hreflang="ja">Support (Japanese)</a></li>
+    <li><a href="./terms-en.html">Terms</a></li>
+    <li><a href="./privacy-en.html">Privacy</a></li>
+  </ul>
+  <p>Developer: Tatsuya Kurauchi</p>
+</footer>
+</body>
+</html>
